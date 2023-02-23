@@ -1,15 +1,16 @@
 import React from 'react';
 
 function ProductRow(props) {
-    const { name, price, inStock } = props.product;
+  const { product } = props;
+  const name = product.inStock ? product.name : <span style={{ color: 'red' }}>{product.name}</span>;
 
-    return (
-        <tr>
-            <td>{name}</td>
-            <td>{price}</td>
-            <td>{inStock ? 'Yes' : 'No'}</td>
-        </tr>
-    )
+  return (
+    <tr>
+      <td>{name}</td>
+      <td>{product.price}</td>
+      <td>{product.inStock ? 'Yes' : 'No'}</td>
+    </tr>
+  );
 }
 
-export default ProductRow
+export default ProductRow;
